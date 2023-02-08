@@ -9,8 +9,12 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review  import Review
 
+<<<<<<< HEAD
 class_list = { "BaseModel": BaseModel, "User": State, "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
 white_list = []
 for key in class_list:
     white_list.append(key)
 commands = ["do_show", "do_destroy", "do_all"]
+=======
+class_list = { "BaseModel": BaseModel, "User": State, "State": State, "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
+>>>>>>> 392d0e179d334aa431e19bccbf3f08bbec5937e3
