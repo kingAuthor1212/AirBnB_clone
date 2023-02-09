@@ -13,4 +13,4 @@ class User(BaseModel):
 
     def __int__(self, *args, **kwargs):
         """class constructor"""
-        super().__int__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
