@@ -24,7 +24,7 @@ class BaseModel:
 
     def __str__(self):
         """custom __str__ method for BaseModel"""
-        return ("[{}] ({}) {}".format(self.__class__.__name,self.id, self.__dict__))
+        return ("[{}] ({}) {}".format(self.__class__.__name__,self.id, self.__dict__))
 
     def save(self):
         """updates updated_at with the current datetime"""
@@ -35,5 +35,5 @@ class BaseModel:
         """retruns a dictionary containing all keys/values of __dict__ the instance"""
 
     dict_ = dict(self.__dict__)
-    dict.update({"__class__": self.__class__.name__,"created_at": str(((self.created_at).isoformat())),"updated_at": str(((self.updated_at).isoformat()))})
+    dict.update({"__class__": self.__class__.__name__,"created_at": str(((self.created_at).isoformat())),"updated_at": str(((self.updated_at).isoformat()))})
 return dict_
