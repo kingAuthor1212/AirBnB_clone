@@ -33,7 +33,6 @@ class BaseModel:
 
     def to_dict(self):
         """retruns a dictionary containing all keys/values of __dict__ the instance"""
-
     dict_ = dict(self.__dict__)
-    dict.update({"__class__": self.__class__.__name__,"created_at": str(((self.created_at).isoformat())),"updated_at": str(((self.updated_at).isoformat()))})
+    dict_.update({"__class__": self.__class__.__name__, "created_at": str(((self.created_at).isoformat())),"updated_at": str(((self.updated_at).isoformat()))})
 return dict_
