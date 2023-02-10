@@ -302,3 +302,352 @@ class TestHBNBCommand_all_method(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as obtained:
             HBNBCommand().onecmd(command)
             self.assertIn(id, obtained.getvalue().strip())
+
+class TestHBNHCommand_all_method(unittest.TestCase):
+    """test the hbnb ccommand interpreter"""
+    def test_destroy_BaseModel(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create BaseModel")
+            instance = 'BaseModel.' + obtained.getvalue().strip()
+            shortcut = obtained.getvalue().strip()
+            command = 'BaseModel.destroy("{}")'.format(shortcut)
+            self.assertIn(instance, storage.all().keys())
+
+    def test_destroy_User(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create User")
+            instance = 'User.' + obtained.getvalue().strip()
+            shortcut = obtained.getvalue().strip()
+            command = 'User.destroy("{}")'.format(shortcut)
+            self.assertIn(instance, storage.all().keys())
+
+    def test_destroy_State(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create State")
+            instance = 'State.' + obtained.getvalue().strip()
+            shortcut = obtained.getvalue().strip()
+            command = 'State.destroy("{}")'.format(shortcut)
+            self.assertIn(instance, storage.all().keys())
+
+    def test_destroy_City(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create City")
+            instance = 'City.' + obtained.getvalue().strip()
+            shortcut = obtained.getvalue().strip()
+            command = 'City.destroy("{}")'.format(shortcut)
+            self.assertIn(instance, storage.all().keys())
+
+    def test_destroy_Amenity(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create Amenity")
+            instance = 'Amenity.' + obtained.getvalue().strip()
+            shortcut = obtained.getvalue().strip()
+            command = 'Amenity.destroy("{}")'.format(shortcut)
+            self.assertIn(instance, storage.all().keys())
+
+    def test_destroy_Place(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create Place")
+            instance = 'Place.' + obtained.getvalue().strip()
+            shortcut = obtained.getvalue().strip()
+            command = 'Place.destroy("{}")'.format(shortcut)
+            self.assertIn(instance, storage.all().keys())
+
+    def test_destroy_Review(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create Review")
+            instance = 'Review.' + obtained.getvalue().strip()
+            shortcut = obtained.getvalue().strip()
+            command = 'Review.destroy("{}")'.format(shortcut)
+            self.assertIn(instance, storage.all().keys())
+
+class TestHBNBCommand_all_method(unittest.TestCase):
+    """tests the HBNB command interpreter"""
+
+    def test_update_BaseModel(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create BaseModel")
+            id = obtained.getvalue().strip()
+            command = 'BaseModel.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+
+    def test_update_User(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create User")
+            id = obtained.getvalue().strip()
+            command = 'User.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            command = 'User.update("{}", "Holberton", "School")'.format(id)
+            HBNBCommand().onecmd(command)
+            command = 'User.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+
+    def test_update_State(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create State")
+            id = obtained.getvalue().strip()
+            command = 'State.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            command = 'State.update("{}", "Holberton", "School")'.format(id)
+            HBNBCommand().onecmd(command)
+            command = 'State.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+
+    def test_update_City(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create City")
+            id = obtained.getvalue().strip()
+            command = 'City.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            command = 'City.update("{}", "Holberton", "School")'.format(id)
+            HBNBCommand().onecmd(command)
+            command = 'City.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+
+    def test_update_Amenity(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create Amenity")
+            id = obtained.getvalue().strip()
+            command = 'Amenity.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            command = 'Amenity.update("{}", "Holberton", "School")'.format(id)
+            HBNBCommand().onecmd(command)
+            command = 'Amenity.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+
+    def test_update_Place(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create Place")
+            id = obtained.getvalue().strip()
+            command = 'Place.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            command = 'Place.update("{}", "Holberton", "School")'.format(id)
+            HBNBCommand().onecmd(command)
+            command = 'Place.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+
+    def test_update_Review(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create Review")
+            id = obtained.getvalue().strip()
+            command = 'Review.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            command = 'Review.update("{}", "Holberton", "School")'.format(id)
+            HBNBCommand().onecmd(command)
+            command = 'Review.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+
+
+class TestHBNBCommand_all_method(unittest.TestCase):
+    """tests the HBNB command interpreter"""
+
+    def test_update_dict_BaseModel(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create BaseModel")
+            id = obtained.getvalue().strip()
+            command = 'BaseModel.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            self.assertNotIn("Nairobi", obtained.getvalue().strip())
+            self.assertNotIn("Kenya", obtained.getvalue().strip())
+            shortcut = '{ "Holberton": "School", "Nairobi": "Kenya" }'
+            command = 'BaseModel.update("{}", {})'.format(id, shortcut)
+            HBNBCommand().onecmd(command)
+            command = 'BaseModel.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+            self.assertIn("Nairobi", obtained.getvalue().strip())
+            self.assertIn("Kenya", obtained.getvalue().strip())
+
+    def test_update_dict_User(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create User")
+            id = obtained.getvalue().strip()
+            command = 'User.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            self.assertNotIn("Nairobi", obtained.getvalue().strip())
+            self.assertNotIn("Kenya", obtained.getvalue().strip())
+            shortcut = '{ "Holberton": "School", "Nairobi": "Kenya" }'
+            command = 'User.update("{}", {})'.format(id, shortcut)
+            HBNBCommand().onecmd(command)
+            command = 'User.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+            self.assertIn("Nairobi", obtained.getvalue().strip())
+            self.assertIn("Kenya", obtained.getvalue().strip())
+
+    def test_update_dict_State(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create State")
+            id = obtained.getvalue().strip()
+            command = 'State.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            self.assertNotIn("Nairobi", obtained.getvalue().strip())
+            self.assertNotIn("Kenya", obtained.getvalue().strip())
+            shortcut = '{ "Holberton": "School", "Nairobi": "Kenya" }'
+            command = 'State.update("{}", {})'.format(id, shortcut)
+            HBNBCommand().onecmd(command)
+            command = 'State.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+            self.assertIn("Nairobi", obtained.getvalue().strip())
+            self.assertIn("Kenya", obtained.getvalue().strip())
+
+    def test_update_dict_City(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create City")
+            id = obtained.getvalue().strip()
+            command = 'City.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            self.assertNotIn("Nairobi", obtained.getvalue().strip())
+            self.assertNotIn("Kenya", obtained.getvalue().strip())
+            shortcut = '{ "Holberton": "School", "Nairobi": "Kenya" }'
+            command = 'City.update("{}", {})'.format(id, shortcut)
+            HBNBCommand().onecmd(command)
+            command = 'City.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+            self.assertIn("Nairobi", obtained.getvalue().strip())
+            self.assertIn("Kenya", obtained.getvalue().strip())
+
+    def test_update_dict_Amenity(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create Amenity")
+            id = obtained.getvalue().strip()
+            command = 'Amenity.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            self.assertNotIn("Nairobi", obtained.getvalue().strip())
+            self.assertNotIn("Kenya", obtained.getvalue().strip())
+            shortcut = '{ "Holberton": "School", "Nairobi": "Kenya" }'
+            command = 'Amenity.update("{}", {})'.format(id, shortcut)
+            HBNBCommand().onecmd(command)
+            command = 'Amenity.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+            self.assertIn("Nairobi", obtained.getvalue().strip())
+            self.assertIn("Kenya", obtained.getvalue().strip())
+
+    def test_update_dict_Place(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create Place")
+            id = obtained.getvalue().strip()
+            command = 'Place.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            self.assertNotIn("Nairobi", obtained.getvalue().strip())
+            self.assertNotIn("Kenya", obtained.getvalue().strip())
+            shortcut = '{ "Holberton": "School", "Nairobi": "Kenya" }'
+            command = 'Place.update("{}", {})'.format(id, shortcut)
+            HBNBCommand().onecmd(command)
+            command = 'Place.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+            self.assertIn("Nairobi", obtained.getvalue().strip())
+            self.assertIn("Kenya", obtained.getvalue().strip())
+
+    def test_update_dict_Review(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create Review")
+            id = obtained.getvalue().strip()
+            command = 'Review.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertNotIn("Holberton", obtained.getvalue().strip())
+            self.assertNotIn("School", obtained.getvalue().strip())
+            self.assertNotIn("Nairobi", obtained.getvalue().strip())
+            self.assertNotIn("Kenya", obtained.getvalue().strip())
+            shortcut = '{ "Holberton": "School", "Nairobi": "Kenya" }'
+            command = 'Review.update("{}", {})'.format(id, shortcut)
+            HBNBCommand().onecmd(command)
+            command = 'Review.show("{}")'.format(id)
+            HBNBCommand().onecmd(command)
+            self.assertIn("Holberton", obtained.getvalue().strip())
+            self.assertIn("School", obtained.getvalue().strip())
+            self.assertIn("Nairobi", obtained.getvalue().strip())
+            self.assertIn("Kenya", obtained.getvalue().strip())
+
+
+class TestHBNBCommand_all_method(unittest.TestCase):
+    """tests the HBNB command interpreter"""
+
+    def test_count(self):
+        try:
+            os.remove("file.json")
+        except:
+            pass
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("create BaseModel")
+            HBNBCommand().onecmd("create BaseModel")
+            HBNBCommand().onecmd("create BaseModel")
+            HBNBCommand().onecmd("create User")
+            HBNBCommand().onecmd("create State")
+            HBNBCommand().onecmd("create City")
+            HBNBCommand().onecmd("create City")
+            HBNBCommand().onecmd("create Amenity")
+            HBNBCommand().onecmd("create Place")
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("BaseModel.count()")
+            self.assertEqual("3", obtained.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("User.count()")
+            self.assertEqual("1", obtained.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("State.count()")
+            self.assertEqual("1", obtained.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("City.count()")
+            self.assertEqual("2", obtained.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("Amenity.count()")
+            self.assertEqual("1", obtained.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("Place.count()")
+            self.assertEqual("1", obtained.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            HBNBCommand().onecmd("Review.count()")
+            self.assertEqual("0", obtained.getvalue().strip())
+
+
+if __name__ == "__main__":
+    unittest.main()
