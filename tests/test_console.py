@@ -150,4 +150,90 @@ class TestHBNBCommand_all_method(unittest.TestCase):
     def test_all_BaseModel(self):
         with patch("sys.stdout", new=StringIO()) as obtained:
             self.create_all_classes()
-        with patch("sys.stdout")
+        with patch("sys.stdout",new=StringIO()) as obtained:
+            HBNBCommand().onecmd("BaseModel.all()")
+            self.assertIn("BaseModel", obtained.getvalue().strip())
+            self.assertNotIn("User", obtained.getvalue().strip())
+            self.assertNotIn("City", obtained.getvalue().strip())
+            self.assertNotIn("State", obtained.getvalue().strip())
+            self.assertNotIn("Amenity", obtained.getvalue().strip())
+            self.assertNotIn("Place", obtained.getvalue().strip())
+            self.assertNotIn("Review", obtained.getvalue().strip())
+
+    def test_all_User(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            self.create_all_classes()
+        with patch("sys.stdout",new=StringIO()) as obtained:
+            HBNBCommand().onecmd("BaseModel.all()")
+            self.assertIn("BaseModel", obtained.getvalue().strip())
+            self.assertNotIn("User", obtained.getvalue().strip())
+            self.assertNotIn("City", obtained.getvalue().strip())
+            self.assertNotIn("State", obtained.getvalue().strip())
+            self.assertNotIn("Amenity", obtained.getvalue().strip())
+            self.assertNotIn("Place", obtained.getvalue().strip())
+            self.assertNotIn("Review", obtained.getvalue().strip())
+
+    def test_all_State(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            self.create_all_classes()
+        with patch("sys.stdout",new=StringIO()) as obtained:
+            HBNBCommand().onecmd("BaseModel.all()")
+            self.assertIn("BaseModel", obtained.getvalue().strip())
+            self.assertNotIn("User", obtained.getvalue().strip())
+            self.assertNotIn("City", obtained.getvalue().strip())
+            self.assertNotIn("State", obtained.getvalue().strip())
+            self.assertNotIn("Amenity", obtained.getvalue().strip())
+            self.assertNotIn("Place", obtained.getvalue().strip())
+            self.assertNotIn("Review", obtained.getvalue().strip())
+
+    def test_all_City(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            self.create_all_classes()
+        with patch("sys.stdout",new=StringIO()) as obtained:
+            HBNBCommand().onecmd("BaseModel.all()")
+            self.assertIn("BaseModel", obtained.getvalue().strip())
+            self.assertNotIn("User", obtained.getvalue().strip())
+            self.assertNotIn("City", obtained.getvalue().strip())
+            self.assertNotIn("State", obtained.getvalue().strip())
+            self.assertNotIn("Amenity", obtained.getvalue().strip())
+            self.assertNotIn("Place", obtained.getvalue().strip())
+            self.assertNotIn("Review", obtained.getvalue().strip())
+
+    def test_all_Amenity(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            self.create_all_classes()
+        with patch("sys.stdout",new=StringIO()) as obtained:
+            HBNBCommand().onecmd("BaseModel.all()")
+            self.assertIn("BaseModel", obtained.getvalue().strip())
+            self.assertNotIn("User", obtained.getvalue().strip())
+            self.assertNotIn("City", obtained.getvalue().strip())
+            self.assertNotIn("State", obtained.getvalue().strip())
+            self.assertNotIn("Amenity", obtained.getvalue().strip())
+            self.assertNotIn("Place", obtained.getvalue().strip())
+            self.assertNotIn("Review", obtained.getvalue().strip())
+
+    def test_all_Place(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            self.create_all_classes()
+        with patch("sys.stdout",new=StringIO()) as obtained:
+            HBNBCommand().onecmd("BaseModel.all()")
+            self.assertIn("BaseModel", obtained.getvalue().strip())
+            self.assertNotIn("User", obtained.getvalue().strip())
+            self.assertNotIn("City", obtained.getvalue().strip())
+            self.assertNotIn("State", obtained.getvalue().strip())
+            self.assertNotIn("Amenity", obtained.getvalue().strip())
+            self.assertNotIn("Place", obtained.getvalue().strip())
+            self.assertNotIn("Review", obtained.getvalue().strip())
+
+    def test_all_Review(self):
+        with patch("sys.stdout", new=StringIO()) as obtained:
+            self.create_all_classes()
+        with patch("sys.stdout",new=StringIO()) as obtained:
+            HBNBCommand().onecmd("BaseModel.all()")
+            self.assertIn("BaseModel", obtained.getvalue().strip())
+            self.assertNotIn("User", obtained.getvalue().strip())
+            self.assertNotIn("City", obtained.getvalue().strip())
+            self.assertNotIn("State", obtained.getvalue().strip())
+            self.assertNotIn("Amenity", obtained.getvalue().strip())
+            self.assertNotIn("Place", obtained.getvalue().strip())
+            self.assertNotIn("Review", obtained.getvalue().strip())
